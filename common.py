@@ -23,6 +23,13 @@ from pathlib import Path
 import requests
 
 categories = [
+    'dynamic_to_static',
+    'executor',
+    'phi',
+    'python_frontend',
+    'cuda',
+    'distributed',
+    'inference',
     'Uncategorized',
 ]
 
