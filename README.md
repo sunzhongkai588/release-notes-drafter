@@ -1,39 +1,38 @@
-# release-notes-drafter
-draft release notes for PaddlePaddle/Paddle project
+# Release-Notes-Drafter
 
-## How to use
+Draft release notes for the PaddlePaddle/Paddle project.
 
-#### Your local folder structure
+## How to Use
 
-copy the scripts here into your local Paddle repository, e.g.: Paddle/release-notes-drafter.
-Please dont copy .git folder in release-notes-drafter.
+#### Your Local Folder Structure
 
-#### Setup your token
+Copy the scripts provided in this repository into your local Paddle repository, for example: Paddle/release-notes-drafter. Please don't copy the .git folder.
 
-to get a token, Go to github.com Settings -> Developer Settings -> Personal Access Tokens, and generate a token with public_repo access. Add this token to your '~/.gh_tokenrc' configuration: github_oauth = <YOUR_GITHUB_TOKEN>.
+#### Setting up Your Token
 
-#### Run the script
+To get a token, go to GitHub.com and navigate to Settings -> Developer Settings -> Personal Access Tokens. Generate a token with public_repo access, and add this token to your `~/.gh_tokenrc` configuration as follows: `github_oauth = <YOUR_GITHUB_TOKEN>`.
 
-- to get commits list (PR list in context of Paddle project)
+#### Running the Script
 
-`python commitlists.py --create_new previous_commit_hash current_commit_hash`.
-you will find a csv file in results folder.
+- To get the list of commits (PR list in the context of the Paddle project):
 
-- to generate contributors list
+  ```shell
+  python commitlists.py --create_new previous_commit_hash current_commit_hash
+  ```
 
-edit the very simple `generate_contributors.sh` script, and run it.
+  You will find a CSV file in the results folder.
+
+- To generate the list of contributors:
+
+  Edit the `generate_contributors.sh` script and run it.
 
 ## Notes
 
-This is borrowed from : https://github.com/pytorch/pytorch/tree/master/scripts/release_notes
+This is borrowed from https://github.com/pytorch/pytorch/tree/master/scripts/release_notes. I adapted it to fit Paddle, but there are still many tasks that need to be done before we can import this workflow into Paddle:
 
-I adapt it to fit Paddle, but there are still many todos for us to import this workflow into Paddle.
-
-- make appropriate category lists (and maybe topic lists), and find a owner for each category.
-- implement heuristic rules to categorize each commit(PR) into cateogy and topic.
-- implement a github bot, for each merged PR, ask reviewers/mergers assigning appropriate labels:
-    - release notes:category
-    - release notes:topic
-- utilize our internal tool to map each github ID into his/her real name
-
-
+- Make appropriate category lists (and possibly topic lists), and assign an owner to each category.
+- Implement heuristic rules to categorize each commit (PR) into a category and topic.
+- Implement a GitHub bot to ask reviewers/mergers to assign appropriate labels for each merged PR, such as:
+  - `release notes:category`
+  - `release notes:topic`
+- Utilize our internal tool to map each GitHub ID to their real name.
