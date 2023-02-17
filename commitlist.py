@@ -46,6 +46,7 @@ class Commit:
     title: str
     pr_link: str
     author: str
+    labels: str
 
     # This is not a list so that it is easier to put in a spreadsheet
     accepter_1: str
@@ -122,6 +123,8 @@ class CommitList:
         else:
             pr_link = None
 
+        label_str = ",".join(features["labels"])
+
         return Commit(
             commit_hash,
             category,
@@ -129,6 +132,7 @@ class CommitList:
             features["title"],
             pr_link,
             features["author"],
+            label_str,
             a1,
             a2,
             a3,
